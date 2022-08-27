@@ -31,3 +31,11 @@ $ npm stop
 
 
 [egg]: https://eggjs.org
+
+### 首先简单的说一下在哪里写代码
+- 我们主要用到的是controller文件夹，service文件夹，router.js， 还有我们之前创建的urls.js
+
+- 在controller中创建文件，在文件内书写逻辑
+- 在service中创建对应文件，主要是查询数据库
+- 在urls.js中定义接口
+- 在router.js中进行挂载
