@@ -8,6 +8,7 @@ module.exports = app => {
   const { router, controller, config: { urls } } = app;
   // 用户相关
   router.post(urls.users.register, controller.users.register); // 注册
+  router.post(urls.users.login, controller.users.login); // 登录
   // 商品相关
   router.get(urls.goods.getGoodsList, controller.goods.getGoodsList); // 获取商品列表
 };

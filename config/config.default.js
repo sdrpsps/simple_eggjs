@@ -41,6 +41,11 @@ module.exports = appInfo => {
   };
   // 接口URL
   config.urls = urls;
+  // jwt 配置
+  config.jwt = {
+    secret: 'p9d6yH3ntkwBmLij', // 自定义加密字符串，secret 是在服务端的，不要泄露
+  };
+
 
   // add your middleware config here
   config.middleware = ['errorHandler'];

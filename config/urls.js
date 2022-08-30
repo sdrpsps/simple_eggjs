@@ -2,7 +2,7 @@
  * @Author: zhouxiangyang
  * @Email: hchow@hchow.icu
  * @Date: 2022-08-27 14:41:49
- * @LastEditTime: 2022-08-30 10:50:53
+ * @LastEditTime: 2022-08-30 13:56:33
  * @FilePath: /simple_eggjs/config/urls.js
  * @Description: 集成所有的接口，方便统一管理
  * 
@@ -12,6 +12,7 @@ module.exports = {
     // 用户模块
     users: {
         register: '/api/register', // 注册
+        login: '/api/login', // 登录
     },
     goods: {
         getGoodsList: "/api/getGoodsList",

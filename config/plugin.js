@@ -4,11 +4,14 @@ const mysql = {
   enable: true,
   package: 'egg-mysql',
 };
+
+const jwt = {
+  enable: true,
+  package: 'egg-jwt'
+}
+
 /** @type Egg.EggPlugin */
 module.exports = {
-  // had enabled by egg
-  // static: {
-  //   enable: true,
-  // }
   mysql,
+  jwt,
 };

@@ -2,7 +2,7 @@
  * @Author: zhouxiangyang
  * @Email: hchow@hchow.icu
  * @Date: 2022-08-27 14:46:14
- * @LastEditTime: 2022-08-27 14:48:16
+ * @LastEditTime: 2022-08-30 15:48:43
  * @FilePath: /simple_eggjs/app/service/common.js
  * @Description: common.js文件，用来封装一些公用的方法
  * 
@@ -11,6 +11,13 @@
 
 const Service = require('egg').Service
 const crypto = require('crypto');
+
+// 密码加密算法
+const algorithm = 'aes192'
+// 密码加密密钥
+const secret = '4rABqAJacYpNxecTeKkKjzCZpugTwmuE'
+// 密码编码方法
+const encoding = 'hex'
 
 class CommonService extends Service {
     // 根据用户名查询数据库中的数据
@@ -22,10 +29,19 @@ class CommonService extends Service {
             }
         })
     }
-
-    // 专门对数据进行md5加密的方法，输入明文返回密文
-    getMd5Data(data) {
-        return crypto.createHash('md5').update(data).digest('hex');
+    // 加密密码
+    getCipher(password) {
+        const cipher = crypto.createCipher(algorithm, secret)
+        cipher.update(password)
+        const cipherPassword = cipher.final(encoding)
+        return cipherPassword;
+    }
+    // 解密密码
+    getDecipher(dbPassword) {
+        const decipher = crypto.createDecipher(algorithm, secret)
+        decipher.update(dbPassword, encoding)
+        const decipherPassword = decipher.final('utf-8')
+        return decipherPassword;
     }
 }
 
