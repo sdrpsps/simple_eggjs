@@ -2,17 +2,14 @@
  * @Author: zhouxiangyang
  * @Email: hchow@hchow.icu
  * @Date: 2022-08-27 14:40:52
- * @LastEditTime: 2022-08-27 14:41:26
+ * @LastEditTime: 2022-08-29 16:19:59
  * @FilePath: /simple_eggjs/app/middleware/errorHandler.js
  * @Description: 中间件，目的还是为了扩展功能，这次我们是为了写一个全局错误处理的中间件
  * 
  * Copyright (c) 2022 by sdrpsps(hchow), All Rights Reserved. 
  */
-// app/middleware/errorHandler.js
 module.exports = () => {
     return async (ctx, next) => {
-        // const req = ctx.request;
-        // const res = ctx.response;
         try {
             await next()
         } catch (err) {

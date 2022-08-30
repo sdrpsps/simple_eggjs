@@ -2,7 +2,7 @@
  * @Author: zhouxiangyang
  * @Email: hchow@hchow.icu
  * @Date: 2022-08-27 14:45:53
- * @LastEditTime: 2022-08-27 14:54:20
+ * @LastEditTime: 2022-08-30 11:13:01
  * @FilePath: /simple_eggjs/app/controller/users.js
  * @Description: 用户模块控制器
  * 
