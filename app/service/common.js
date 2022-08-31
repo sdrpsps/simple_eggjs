@@ -2,7 +2,7 @@
  * @Author: zhouxiangyang
  * @Email: hchow@hchow.icu
  * @Date: 2022-08-27 14:46:14
- * @LastEditTime: 2022-08-30 15:48:43
+ * @LastEditTime: 2022-08-30 15:57:58
  * @FilePath: /simple_eggjs/app/service/common.js
  * @Description: common.js文件，用来封装一些公用的方法
  * 
@@ -21,11 +21,11 @@ const encoding = 'hex'
 
 class CommonService extends Service {
     // 根据用户名查询数据库中的数据
-    async getUser(params) {
+    async getUser(username) {
         const { app } = this
         return await app.mysql.select('users', {
             where: {
-                username: params.username
+                username
             }
         })
     }

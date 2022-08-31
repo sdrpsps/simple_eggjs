@@ -13,6 +13,8 @@ module.exports = {
     users: {
         register: '/api/register', // 注册
         login: '/api/login', // 登录
+        updatePassword: '/api/updatePassword', // 修改密码
+        deleteUser: '/api/deleteUser', // 修改密码
     },
     goods: {
         getGoodsList: "/api/getGoodsList",
