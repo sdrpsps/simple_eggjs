@@ -2,7 +2,7 @@
  * @Author: zhouxiangyang
  * @Email: hchow@hchow.icu
  * @Date: 2022-08-27 14:40:52
- * @LastEditTime: 2022-08-29 16:19:59
+ * @LastEditTime: 2022-09-01 14:05:52
  * @FilePath: /simple_eggjs/app/middleware/errorHandler.js
  * @Description: 中间件，目的还是为了扩展功能，这次我们是为了写一个全局错误处理的中间件
  * 

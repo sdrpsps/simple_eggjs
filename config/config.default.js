@@ -30,7 +30,7 @@ module.exports = appInfo => {
   config.cors = {
     // 这里是允许所有的跨域请求，如有需要可自己查阅文档进行特殊配置
     origin: "*",
-    allowMethods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowMethods: ["GET", "POST", "PUT", "DELETE"],
   };
   // EggJS安全策略，用来暂时解决POST报错
   config.security = {

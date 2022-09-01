@@ -6,7 +6,7 @@
  * @FilePath: /simple_eggjs/app/service/goods.js
  * @Description: 
  * 
- * Copyright (c) 2022 by 儒韵电商, All Rights Reserved. 
+ * Copyright (c) 2022 by sdrpsps(hchow), All Rights Reserved. 
  */
 const Service = require('egg').Service
 

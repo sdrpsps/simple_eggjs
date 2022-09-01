@@ -2,15 +2,9 @@
  * @Author: zhouxiangyang
  * @Email: hchow@hchow.icu
  * @Date: 2022-08-27 14:39:38
- * @LastEditTime: 2022-08-30 15:38:40
+ * @LastEditTime: 2022-09-01 14:39:12
  * @FilePath: /simple_eggjs/app/extend/context.js
- * @Description: 扩展 context 的功能，也就是等会会经常使用到的 ctx 
- * 之后我们在设置返回值的时候都是通过
-    ctx.body = {
-        ... 一些需要返回的数据
-    }
-    我们可以把这些东西给统一封装起来
- * 
+ * @Description: 扩展 context 的功能，也就是经常使用到的 ctx 
  * Copyright (c) 2022 by sdrpsps(hchow), All Rights Reserved. 
  */
 
@@ -22,7 +16,6 @@ module.exports = {
         const isObj = typeof msg === "object";
         isObj && (data = msg);
         return {
-            code: 200,
             message: isObj ? "操作成功" : msg,
             data: data,
             success: true,
@@ -33,7 +26,6 @@ module.exports = {
         const isObj = typeof msg === "object";
         isObj && (data = msg);
         return {
-            code: 200,
             message: isObj ? "操作成功" : msg,
             ...data,
             success: true,
@@ -44,7 +36,6 @@ module.exports = {
         const isObj = typeof message === "object";
         isObj && (data = message);
         return {
-            code: -1,
             message: isObj ? "操作失败" : message,
             data: data,
             success: false,
