@@ -17,11 +17,11 @@ module.exports = appInfo => {
   // 数据库
   config.mysql = {
     client: {
-      host: "localhost",
+      host: "120.76.175.16",
       port: "3306",
-      user: "root",
-      password: "Adreno320",
-      database: "CMS",
+      user: "study",
+      password: "study",
+      database: "study",
     },
     app: true,
     agent: false,

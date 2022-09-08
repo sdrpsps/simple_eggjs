@@ -2,7 +2,7 @@
  * @Author: zhouxiangyang
  * @Email: hchow@hchow.icu
  * @Date: 2022-08-27 14:45:53
- * @LastEditTime: 2022-09-01 14:26:56
+ * @LastEditTime: 2022-09-01 15:22:02
  * @FilePath: /simple_eggjs/app/controller/users.js
  * @Description: 用户模块控制器
  *         
@@ -55,7 +55,7 @@ class UsersController extends Controller {
     // 检查用户是否存在
     async checkUser(username) {
         const userInfo = await this.service.common.getUser(username);
-        if (userInfo.length === 1) {
+        if (userInfo) {
             return userInfo;
         } else {
             return false;
@@ -97,10 +97,10 @@ class UsersController extends Controller {
             return
         };
         // 如果存在，则解密密码进行比对
-        const decipherPassword = await service.common.getDecipher(userInfo[0].password)
+        const decipherPassword = await service.common.getDecipher(userInfo.password)
         if (decipherPassword === password) {
-            const token = app.jwt.sign({ username: userInfo[0].username }, app.config.jwt.secret);
-            return (ctx.body = ctx.success("登录成功", { username, token }));
+            const token = app.jwt.sign({ id: userInfo.id, username: userInfo.username }, app.config.jwt.secret);
+            return (ctx.body = ctx.success("登录成功", { id: userInfo.id, username: userInfo.username, token }));
         } else {
             return (ctx.body = ctx.fail("密码错误"));
         }
@@ -121,14 +121,14 @@ class UsersController extends Controller {
             return
         };
         // 如果存在，则解密密码进行比对
-        const decipherPassword = await service.common.getDecipher(userInfo[0].password)
+        const decipherPassword = await service.common.getDecipher(userInfo.password)
         if (decipherPassword === oldPassword) {
             // 如果新密码和旧密码一致
             if (decipherPassword === newPassword) {
                 ctx.status = 401;
                 return (ctx.body = ctx.fail("新密码不能与旧密码一致"));
             } else {
-                const updateStatus = await service.users.updatePassword(userInfo[0].id, newPassword)
+                const updateStatus = await service.users.updatePassword(userInfo.id, newPassword)
                 if (updateStatus.affectedRows === 1) {
                     return (ctx.body = ctx.success('密码更新成功'))
                 } else {
@@ -159,7 +159,7 @@ class UsersController extends Controller {
             return;
         }
         // 删除用户
-        const deleteStatus = await service.users.deleteUser(userInfo[0].id)
+        const deleteStatus = await service.users.deleteUser(userInfo.id)
         if (deleteStatus.affectedRows === 1) {
             return (ctx.body = ctx.success('删除成功'))
         } else {

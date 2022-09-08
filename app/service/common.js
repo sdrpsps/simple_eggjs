@@ -2,7 +2,7 @@
  * @Author: zhouxiangyang
  * @Email: hchow@hchow.icu
  * @Date: 2022-08-27 14:46:14
- * @LastEditTime: 2022-08-30 15:57:58
+ * @LastEditTime: 2022-09-01 14:52:01
  * @FilePath: /simple_eggjs/app/service/common.js
  * @Description: common.js文件，用来封装一些公用的方法
  * 
@@ -23,11 +23,7 @@ class CommonService extends Service {
     // 根据用户名查询数据库中的数据
     async getUser(username) {
         const { app } = this
-        return await app.mysql.select('users', {
-            where: {
-                username
-            }
-        })
+        return await app.mysql.get('users', { username })
     }
     // 加密密码
     getCipher(password) {

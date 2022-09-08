@@ -17,7 +17,7 @@ module.exports = {
         isObj && (data = msg);
         return {
             message: isObj ? "操作成功" : msg,
-            data: data,
+            data,
             success: true,
         };
     },
@@ -27,7 +27,7 @@ module.exports = {
         isObj && (data = msg);
         return {
             message: isObj ? "操作成功" : msg,
-            ...data,
+            data,
             success: true,
         };
     },
@@ -37,7 +37,7 @@ module.exports = {
         isObj && (data = message);
         return {
             message: isObj ? "操作失败" : message,
-            data: data,
+            data,
             success: false,
         };
     },

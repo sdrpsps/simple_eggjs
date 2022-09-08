@@ -2,7 +2,7 @@
  * @Author: zhouxiangyang
  * @Email: hchow@hchow.icu
  * @Date: 2022-09-01 14:02:16
- * @LastEditTime: 2022-09-01 14:35:34
+ * @LastEditTime: 2022-09-01 15:10:29
  * @FilePath: /simple_eggjs/app/middleware/jwt.js
  * @Description: 验证并解密token
  * 
@@ -16,6 +16,12 @@ module.exports = () => {
             try {
                 // 解码token
                 decodeToken = ctx.app.jwt.verify(token, ctx.app.config.jwt.secret);
+                // 当get请求的时候
+                if (ctx.request.method === 'GET') {
+                    await next();
+                    return;
+                }
+                // 其他请求的时候
                 // 验证token用户
                 if (decodeToken.username != ctx.request.body.username) {
                     ctx.status = 401;
