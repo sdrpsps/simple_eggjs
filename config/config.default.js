@@ -35,8 +35,8 @@ module.exports = appInfo => {
   // EggJS安全策略，用来暂时解决POST报错
   config.security = {
     csrf: {
-      enable: false,
-      ignoreJSON: true,
+      enable: true,
+      headerName: 'csrf',
     },
   };
   // 接口URL

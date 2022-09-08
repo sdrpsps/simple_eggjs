@@ -2,7 +2,7 @@
  * @Author: zhouxiangyang
  * @Email: hchow@hchow.icu
  * @Date: 2022-08-27 14:45:53
- * @LastEditTime: 2022-09-01 15:22:02
+ * @LastEditTime: 2022-09-08 16:21:59
  * @FilePath: /simple_eggjs/app/controller/users.js
  * @Description: 用户模块控制器
  *         
@@ -51,7 +51,6 @@ class UsersController extends Controller {
             return true;
         }
     }
-    // 
     // 检查用户是否存在
     async checkUser(username) {
         const userInfo = await this.service.common.getUser(username);
@@ -62,6 +61,11 @@ class UsersController extends Controller {
         }
     }
     /* 接口方法 */
+    // 获取 x-csrf-token
+    async csrf() {
+        const { ctx } = this;
+        ctx.body = ctx.success("x-csrf-token获取成功", { csrf: ctx.csrf });
+    }
     // 注册
     async register() {
         const { ctx, service } = this
